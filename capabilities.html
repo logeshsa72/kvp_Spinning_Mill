@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Mill Capabilities - KVP Spinning Mills</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/kvp.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        /* =========================================================
+           SAME TOKENS AS index.html / products.html — one brand,
+           not three different templates stitched together.
+           ========================================================= */
+        :root {
+            --orange: #FF5E14;
+            --black: #12161f;
+            --cream: #f7f5f1;
+            --border: #ececec;
+            --gray-text: #4a5160;
+            --font-body: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+        }
+
+
+        /* ---------- Hero (identical pattern to products page) ---------- */
+        .pyh-section {
+            background: var(--black);
+            padding: 100px 20px 110px;
+        }
+        .pyh-inner { max-width: 1100px; margin: 0 auto; }
+        .pyh-label { display: flex; align-items: center; gap: 14px; margin-bottom: 26px; }
+        .pyh-label .pyh-line { width: 40px; height: 3px; background: var(--orange); display: inline-block; }
+        .pyh-label span {
+            color: var(--orange);
+            font-weight: 700;
+            letter-spacing: 3px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        .pyh-heading {
+            font-size: 3.4rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 26px;
+        }
+        .pyh-heading .line-white { color: #fff; display: block; }
+        .pyh-heading .line-orange { color: var(--orange); display: block; }
+        .pyh-text { color: rgba(255,255,255,0.65); font-size: 17px; line-height: 1.85; max-width: 720px; }
+
+        @media (max-width: 767px) {
+            .pyh-section { padding: 70px 20px 80px; }
+            .pyh-heading { font-size: 2.1rem; }
+            .pyh-text { font-size: 15px; }
+        }
+
+        /* ---------- Stats band under hero ---------- */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            background: var(--cream);
+            padding: 46px 40px;
+        }
+        .stats .stat { padding: 0 24px; border-left: 1px solid var(--border); }
+        .stats .stat:first-child { border-left: none; padding-left: 0; }
+        .stats .stat .big-num {
+            font-size: 30px;
+            color: var(--orange);
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+        .stats .stat .label { font-size: 14.5px; font-weight: 700; margin-bottom: 4px; color: var(--black); }
+        .stats .stat .desc { font-size: 12.5px; color: var(--gray-text); }
+
+        @media (max-width: 991px) {
+            .stats { grid-template-columns: repeat(3, 1fr); row-gap: 28px; }
+            .stats .stat:nth-child(4) { border-left: none; }
+        }
+        @media (max-width: 575px) {
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .stats .stat:nth-child(odd) { border-left: none; padding-left: 0; }
+        }
+
+        /* ---------- Process section ---------- */
+        .proc-wrap { background: #fff; padding: 100px 40px; }
+        .proc-inner { max-width: 1280px; margin: 0 auto; }
+        .proc-head { max-width: 680px; margin: 0 0 56px; }
+        .proc-head .pyh-label { justify-content: flex-start; }
+        .proc-head h2 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: var(--black);
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+        .proc-head p { color: var(--gray-text); font-size: 16px; line-height: 1.7; }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .card-grid + .card-grid { margin-top: 24px; }
+
+        .proc-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 22px 22px 20px;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .proc-card:hover { box-shadow: 0 20px 40px -18px rgba(18,22,31,0.18); transform: translateY(-4px); }
+
+        .proc-card-top { display: flex; align-items: flex-start; justify-content: space-between; }
+        .proc-num {  font-size: 13px; font-weight: 700; letter-spacing: 1px; color: var(--orange); }
+        .proc-icon {
+            width: 42px; height: 42px; border-radius: 8px;
+            background: #fdf1e9; color: var(--orange);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .proc-card h3 {
+            font-size: 18px; font-weight: 700; color: var(--black);
+            margin: 14px 0 8px;
+        }
+        .proc-pill {
+            display: inline-block; width: fit-content;
+            font-size: 12px; font-weight: 700; letter-spacing: 0.3px;
+            color: var(--orange); background: #fdf1e9;
+            border: 1px solid #fbe0c8; padding: 5px 11px; border-radius: 20px;
+            margin-bottom: 10px;
+        }
+        .proc-desc { color: var(--gray-text); font-size: 14px; line-height: 1.55; flex-grow: 1; margin-bottom: 12px; }
+        .proc-divider { border: none; border-top: 1px solid var(--border); margin: 0 0 10px; }
+        .proc-check-list { list-style: none; margin: 0; padding: 0; }
+        .proc-check-list li {
+            display: flex; align-items: flex-start; gap: 9px;
+            font-size: 13.5px; color: #333a45; padding: 3px 0;
+        }
+        .proc-check-list i { color: var(--orange); font-size: 13px; margin-top: 3px; flex-shrink: 0; }
+
+        @media (max-width: 991px) { .card-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 640px) {
+            .proc-wrap { padding: 70px 20px; }
+            .card-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ---------- Certifications (dark) ---------- */
+        .cert-wrap { background: var(--black); padding: 100px 40px; }
+        .cert-inner { max-width: 1280px; margin: 0 auto; }
+        .cert-head { max-width: 680px; margin-bottom: 56px; }
+        .cert-head h2 {
+            font-size: 2.6rem; font-weight: 700; color: #fff;
+            line-height: 1.2; margin-bottom: 16px;
+        }
+        .cert-head p { color: rgba(255,255,255,0.6); font-size: 16px; line-height: 1.7; }
+
+        .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 24px; }
+        .cert-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 30px 26px;
+        }
+        .cert-icon {
+            width: 46px; height: 46px; border-radius: 8px;
+            background: rgba(255,94,20,0.12); color: var(--orange);
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 18px; font-size: 19px;
+        }
+        .cert-card h3 {  font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+        .cert-sub { font-size: 12.5px; font-weight: 700; color: var(--orange); letter-spacing: 0.3px; }
+        .cert-card p { margin-top: 14px; font-size: 14px; line-height: 1.65; color: rgba(255,255,255,0.6); }
+
+        .lab-banner {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 34px 32px;
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 32px; flex-wrap: wrap;
+        }
+        .lab-banner-text h3 {  font-size: 18px; font-weight: 700; color: #fff; }
+        .lab-banner-text p { margin-top: 10px; font-size: 14px; line-height: 1.65; color: rgba(255,255,255,0.6); max-width: 560px; }
+        .lab-tags { display: flex; flex-wrap: wrap; gap: 12px; }
+        .lab-tag {
+            font-size: 12.5px; font-weight: 700; color: var(--orange);
+            border: 1px solid rgba(255,94,20,0.35); padding: 9px 16px;
+            border-radius: 20px; white-space: nowrap;
+        }
+
+        @media (max-width: 991px) { .cert-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 640px) {
+            .cert-wrap { padding: 70px 20px; }
+            .cert-grid { grid-template-columns: 1fr; }
+            .lab-banner { flex-direction: column; align-items: flex-start; }
+        }
+
+        /* ---------- CTA (identical component from products page) ---------- */
+        .cta-section {
+            background:white;
+            color: #fff;
+            padding: 80px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+        .cta-left { max-width: 640px; }
+        .eyebrow {
+            display: flex; align-items: center; gap: 12px;
+            color: var(--orange); font-size: 12px; font-weight: 700;
+            letter-spacing: 2px; margin-bottom: 28px;
+        }
+        .eyebrow::before { content: ""; width: 24px; height: 2px; background: var(--orange); }
+        .cta-left h2 {
+            
+            font-size: 48px; font-weight: 700; line-height: 1.15; margin-bottom: 24px;
+        }
+        .cta-left p { font-size: 16px; line-height: 1.7; color: #c9c9c9; max-width: 520px; }
+        .cta-buttons { display: flex; gap: 16px; flex-shrink: 0; }
+        .btn-primary {
+            background: var(--orange); color: #fff; border: none;
+            padding: 20px 32px; font-size: 15px; font-weight: 700;
+            border-radius: 6px; cursor: pointer;
+            display: flex; align-items: center; gap: 10px; white-space: nowrap;
+            text-decoration: none;
+        }
+        .btn-secondary {
+            background: transparent; color: #fff; border: 1px solid #555;
+            padding: 20px 32px; font-size: 15px; font-weight: 700;
+            border-radius: 6px; cursor: pointer; white-space: nowrap;
+            text-decoration: none;
+        }
+
+        @media (max-width: 900px) {
+            .cta-section { flex-direction: column; align-items: flex-start; }
+            .cta-left h2 { font-size: 36px; }
+            .cta-buttons { width: 100%; }
+            .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+        }
+        @media (max-width: 575px) {
+            .cta-buttons { flex-direction: column; }
+        }
+
+        /* ---------- Footer (identical component) ---------- */
+        .kvp-footer { background: var(--black); color: rgba(255,255,255,0.65); padding: 70px 20px 0; font-size: 14.5px; }
+        .kvp-footer-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; flex-wrap: wrap; gap: 50px;
+            padding-bottom: 50px; border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .kvp-footer-col { flex: 1 1 220px; }
+        .kvp-footer-col.about { flex: 2 1 320px; }
+        .kvp-footer-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+        .kvp-footer-logo img { height: 88px; }
+        .kvp-footer-col p.desc { line-height: 1.8; max-width: 340px; margin-bottom: 0; }
+        .kvp-footer-heading {
+            color: #fff; font-size: 16px; font-weight: 700; margin-bottom: 22px;
+            position: relative; padding-bottom: 10px;
+        }
+        .kvp-footer-heading::after {
+            content: ""; position: absolute; left: 0; bottom: 0;
+            width: 32px; height: 2px; background: var(--orange);
+        }
+        .kvp-footer-links { list-style: none; margin: 0; padding: 0; }
+        .kvp-footer-links li { margin-bottom: 13px; }
+        .kvp-footer-links a {
+            color: rgba(255,255,255,0.65); text-decoration: none;
+            transition: color 0.25s ease, padding-left 0.25s ease; display: inline-block;
+        }
+        .kvp-footer-links a:hover { color: var(--orange); padding-left: 4px; }
+        .kvp-contact-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 18px; }
+        .kvp-contact-item i { color: var(--orange); font-size: 15px; margin-top: 3px; width: 16px; text-align: center; flex-shrink: 0; }
+        .kvp-contact-item a, .kvp-contact-item span { color: rgba(255,255,255,0.65); text-decoration: none; line-height: 1.6; }
+        .kvp-contact-item a:hover { color: var(--orange); }
+        .kvp-footer-bottom {
+            max-width: 1200px; margin: 0 auto; padding: 24px 0;
+            display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between;
+            font-size: 13px; color: rgba(255,255,255,0.45);
+        }
+        .kvp-footer-bottom span.divider { color: rgba(255,255,255,0.25); margin: 0 6px; }
+
+        @media (max-width: 767px) {
+            .kvp-footer-inner { flex-direction: column; gap: 40px; }
+            .kvp-footer-bottom { justify-content: center; text-align: center; }
+
+        }
+        /* ---------- Process cards: bigger icon + bigger type ---------- */
+.proc-icon {
+    width: 56px; height: 56px; border-radius: 10px;   /* was 42x42 */
+    font-size: 22px;                                    /* icon glyph size */
+}
+.proc-num { font-size: 15px; }                          /* was 13px */
+.proc-card h3 { font-size: 24px; margin: 22px 0 14px; } /* was 20px */
+.proc-pill { font-size: 13px; padding: 7px 14px; }      /* was 12px */
+.proc-desc { font-size: 16px; line-height: 1.75; }      /* was 14.5px */
+.proc-check-list li { font-size: 15px; padding: 6px 0; }/* was 13.5px */
+.proc-check-list i { font-size: 14px; }                 /* was 13px */
+
+/* ---------- Certification cards: bigger icon + bigger type ---------- */
+.cert-icon {
+    width: 60px; height: 60px; border-radius: 10px;    /* was 46x46 */
+    font-size: 24px;                                    /* was default ~19px */
+}
+.cert-card h3 { font-size: 21px; }                      /* was 18px */
+.cert-sub { font-size: 13.5px; }                        /* was 12.5px */
+.cert-card p { font-size: 15.5px; line-height: 1.75; }  /* was 14px */
+    </style>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
+    </div>
+    <!-- Spinner End -->
+
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top py-0 pe-5">
+      <a href="index.html" class="navbar-brand ps-5 me-0">
+            <img src="img/kvp.png" alt="KVP Spinning Mills Logo" width="100" onerror="this.style.display='none'">
+           
+            </a>
+        <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                <a href="products.html" class="nav-item nav-link">Products</a>
+                <a href="capabilities.html" class="nav-item nav-link active">Capabilities</a>
+                <a href="about.html" class="nav-item nav-link">About</a>
+                
+            </div>
+            <a href="contact.html" class="btn nav-cta-btn d-none d-lg-block">Get in Touch</a>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- ============ HERO ============ -->
+    <div class="pyh-section">
+        <div class="pyh-inner">
+            <div class="pyh-label">
+                <span class="pyh-line"></span>
+                <span>Mill Capabilities</span>
+            </div>
+            <h1 class="pyh-heading">
+                <span class="line-white">Precision at Every Stage</span>
+                <span class="line-orange">of the Process.</span>
+            </h1>
+            <p class="pyh-text">
+                From raw fibre to finished yarn — our integrated mill infrastructure is built
+                for scale, consistency, and the exacting demands of export buyers.
+            </p>
+        </div>
+    </div>
+
+    <!-- ============ STATS ============ -->
+    <div class="stats">
+        <div class="stat">
+            <div class="big-num"><span data-toggle="counter-up">15,000</span>+</div>
+            <div class="label">Ring Spindles</div>
+            <div class="desc">High-speed ring frames</div>
+        </div>
+        <div class="stat">
+            <div class="big-num"><span data-toggle="counter-up">800</span>+</div>
+            <div class="label">Silk Reeling Ends</div>
+            <div class="desc">Dedicated reeling unit</div>
+        </div>
+        <div class="stat">
+            <div class="big-num"><span data-toggle="counter-up">1,000</span>+</div>
+            <div class="label">TFO Spindles</div>
+            <div class="desc">Two-for-one twisting</div>
+        </div>
+        <div class="stat">
+            <div class="big-num"><span data-toggle="counter-up">2,000</span> MT</div>
+            <div class="label">Annual Capacity</div>
+            <div class="desc">Across all yarn types</div>
+        </div>
+        <div class="stat">
+            <div class="big-num"><span data-toggle="counter-up">100</span>%</div>
+            <div class="label">Lot Testing</div>
+            <div class="desc">Uster-certified lab</div>
+        </div>
+        <div class="stat">
+            <div class="big-num"><span data-toggle="counter-up">24</span> hrs</div>
+            <div class="label">Sample Dispatch</div>
+            <div class="desc">On confirmed request</div>
+        </div>
+    </div>
+
+    <!-- ============ PRODUCTION PROCESS ============ -->
+    <div class="proc-wrap">
+        <div class="proc-inner">
+            <div class="proc-head">
+                <div class="pyh-label" style="margin-bottom:20px;"><span class="pyh-line" style="width:28px;"></span><span style="font-size:13px;">Production Process</span></div>
+                <h2>From Fibre to Finished Yarn</h2>
+                <p>Every stage of our production is engineered for consistency — from the blowroom to the final quality check before dispatch.</p>
+            </div>
+
+         <div class="card-grid">
+    <!-- 01 -->
+    <div class="proc-card">
+        <div class="proc-card-top">
+            <span class="proc-num">01</span>
+            <span class="proc-icon"><i class="fa fa-wind"></i></span>
+        </div>
+        <h3>BlowRoom &amp; Carding</h3>
+        <span class="proc-pill">TRUTZSCHLER LINES</span>
+        <p class="proc-desc">Modern blowroom lines with auto-levellers clean and open raw cotton to precise micronaire values. High-production carding machines deliver consistent sliver with minimal nep count.</p>
+        <hr class="proc-divider">
+        <ul class="proc-check-list">
+            <li><i class="fa fa-check-circle"></i>Auto-levelling blowroom</li>
+            <li><i class="fa fa-check-circle"></i>Nep reduction &lt; 80/g</li>
+            <li><i class="fa fa-check-circle"></i>Consistent sliver weight</li>
+            <li><i class="fa fa-check-circle"></i>Dust extraction systems</li>
+        </ul>
+    </div>
+
+    <!-- 02 -->
+    <div class="proc-card">
+        <div class="proc-card-top">
+            <span class="proc-num">02</span>
+            <span class="proc-icon"><i class="fa fa-ruler-combined"></i></span>
+        </div>
+        <h3>Drawing &amp; Simplex</h3>
+        <span class="proc-pill">LMW LINES</span>
+        <p class="proc-desc">Precision draw frames with auto-levelling ensure tight CV% at every stage, delivering uniform sliver ready for high-speed spinning.</p>
+        <hr class="proc-divider">
+        <ul class="proc-check-list">
+            <li><i class="fa fa-check-circle"></i>Fibre parallelization</li>
+            <li><i class="fa fa-check-circle"></i>Roving twist control</li>
+            <li><i class="fa fa-check-circle"></i>Tight CV% tolerances</li>
+        </ul>
+    </div>
+
+    <!-- 03 -->
+    <div class="proc-card">
+        <div class="proc-card-top">
+            <span class="proc-num">03</span>
+            <span class="proc-icon"><i class="fa fa-circle-notch"></i></span>
+        </div>
+        <h3>Ring Spinning</h3>
+        <span class="proc-pill">15,000+ SPINDLES</span>
+        <p class="proc-desc">High-speed ring frames running across a wide count range from Ne 33s to Ne 66s. Equipped with compact spinning attachments for low-hairiness, high-strength yarn demanded by premium fabric mills.</p>
+        <hr class="proc-divider">
+        <ul class="proc-check-list">
+            <li><i class="fa fa-check-circle"></i>Ne 33s to Ne 66s range</li>
+            <li><i class="fa fa-check-circle"></i>Compact spinning option</li>
+            <li><i class="fa fa-check-circle"></i>Low hairiness H3 values</li>
+            <li><i class="fa fa-check-circle"></i>S &amp; Z twist available</li>
+        </ul>
+    </div>
+</div>
+
+<div class="card-grid">
+    <!-- 04 -->
+    <div class="proc-card">
+        <div class="proc-card-top">
+            <span class="proc-num">04</span>
+            <span class="proc-icon"><i class="fa fa-water"></i></span>
+        </div>
+        <h3>Silk Reeling</h3>
+        <span class="proc-pill">800+ ENDS</span>
+        <p class="proc-desc">Dedicated silk reeling unit processing cocoons into raw silk filament with high production efficiency. Produces uniform denier silk yarn from 20/22D to 80/64D for luxury fabric applications.</p>
+        <hr class="proc-divider">
+        <ul class="proc-check-list">
+            <li><i class="fa fa-check-circle"></i>20/22D to 80/64D range</li>
+            <li><i class="fa fa-check-circle"></i>High reeling efficiency</li>
+            <li><i class="fa fa-check-circle"></i>Consistent denier control</li>
+            <li><i class="fa fa-check-circle"></i>Luxury fabric grade output</li>
+        </ul>
+    </div>
+
+    <!-- 05 -->
+    <div class="proc-card">
+        <div class="proc-card-top">
+            <span class="proc-num">05</span>
+            <span class="proc-icon"><i class="fa fa-random"></i></span>
+        </div>
+        <h3>TFO Twisting</h3>
+        <span class="proc-pill">1,000+ SPINDLES</span>
+        <p class="proc-desc">Two-for-one twisting machines for doubled and twisted yarn production. Delivers superior twist uniformity and strength for technical textiles, sewing thread, and industrial applications.</p>
+        <hr class="proc-divider">
+        <ul class="proc-check-list">
+            <li><i class="fa fa-check-circle"></i>Doubled &amp; twisted yarn</li>
+            <li><i class="fa fa-check-circle"></i>Superior twist uniformity</li>
+            <li><i class="fa fa-check-circle"></i>Industrial grade strength</li>
+            <li><i class="fa fa-check-circle"></i>Custom TPI on request</li>
+        </ul>
+    </div>
+
+    <!-- 06 -->
+    <div class="proc-card">
+        <div class="proc-card-top">
+            <span class="proc-num">06</span>
+            <span class="proc-icon"><i class="fa fa-microscope"></i></span>
+        </div>
+        <h3>Quality Lab &amp; Testing</h3>
+        <span class="proc-pill">100% LOT TESTING</span>
+        <p class="proc-desc">In-house quality laboratory equipped with Uster Tester for evenness, imperfection index, and hairiness measurement. Every lot is tested before dispatch — no exceptions.</p>
+        <hr class="proc-divider">
+        <ul class="proc-check-list">
+            <li><i class="fa fa-check-circle"></i>Uster evenness testing</li>
+            <li><i class="fa fa-check-circle"></i>IPI &amp; hairiness reports</li>
+            <li><i class="fa fa-check-circle"></i>CSP &amp; RKM measurement</li>
+            <li><i class="fa fa-check-circle"></i>Lot-wise test certificates</li>
+        </ul>
+    </div>
+</div>
+        </div>
+    </div>
+
+    <!-- ============ QUALITY & CERTIFICATIONS ============ -->
+    <div class="cert-wrap">
+        <div class="cert-inner">
+            <div class="cert-head">
+                <div class="pyh-label" style="margin-bottom:20px;"><span class="pyh-line" style="width:28px;"></span><span style="font-size:13px;">Quality &amp; Certifications</span></div>
+                <h2>Standards That Speak for Themselves.</h2>
+                <p>Every lot we produce is backed by internationally recognised certifications and in-house Uster testing — giving export buyers the confidence to specify KVP yarn without compromise.</p>
+            </div>
+
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fa fa-award"></i></div>
+                    <h3>ISO 9001:2015</h3>
+                    <div class="cert-sub">Bureau Veritas</div>
+                    <p>Quality Management System for Yarn Manufacturing</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fa fa-award"></i></div>
+                    <h3>OEKO-TEX Standard 100</h3>
+                    <div class="cert-sub">OEKO-TEX Association</div>
+                    <p>Tested for harmful substances — safe for skin contact</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fa fa-award"></i></div>
+                    <h3>GOTS Certified</h3>
+                    <div class="cert-sub">Control Union</div>
+                    <p>Global Organic Textile Standard for organic yarn lines</p>
+                </div>
+            </div>
+
+            <div class="lab-banner">
+                <div class="lab-banner-text">
+                    <h3>In-House Quality Laboratory</h3>
+                    <p>Our climate-controlled testing lab runs Uster Tester analysis on every production lot — measuring evenness (CV%), imperfection index (IPI), hairiness (H), count strength product (CSP), and RKM values. Lot-wise test certificates are provided with every shipment.</p>
+                </div>
+                <div class="lab-tags">
+                    <span class="lab-tag">CV% Evenness</span>
+                    <span class="lab-tag">IPI Index</span>
+                    <span class="lab-tag">Hairiness H</span>
+                    <span class="lab-tag">CSP &amp; RKM</span>
+                    <span class="lab-tag">Lot Certificates</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ CTA ============ -->
+    <section class="cta-section">
+        <div class="cta-left">
+            <div class="eyebrow">WORK WITH US</div>
+            <h2 style="">Ready to Put Our Mill to Work for You?</h2>
+            <p style=" color: #12161f;">Share your yarn specifications and our technical team will confirm availability, lead times, and arrange a sample shipment within 24 hours.</p>
+        </div>
+        <div class="cta-buttons">
+            <a class="btn-primary" href="get-a-sample.html">Request a Sample <i class="fa fa-arrow-right"></i></a>
+            <a class="btn-secondary" style="color: #333a45;" href="products.html">View Yarn Range</a>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="kvp-footer">
+        <div class="kvp-footer-inner">
+
+            <div class="kvp-footer-col about">
+                <div class="kvp-footer-logo">
+                    <img src="img/kvp.png" alt="KVP Spinning Mills" width="110" onerror="this.style.display='none'" />
+                </div>
+                <p class="desc">
+                    Precision yarn manufacturing from the heart of Coimbatore, Tamil Nadu.
+                    Trusted by textile manufacturers &amp; export buyers across India &amp; overseas.
+                </p>
+            </div>
+
+            <div class="kvp-footer-col">
+                <h5 class="kvp-footer-heading">Quick Links</h5>
+                <ul class="kvp-footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products &amp; Yarn Range</a></li>
+                    <li><a href="capabilities.html">Mill Capabilities</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    
+                    <li><a href="get-a-sample.html">Get in Touch</a></li>
+                </ul>
+            </div>
+
+            <div class="kvp-footer-col">
+                <h5 class="kvp-footer-heading">Get in Touch</h5>
+                <div class="kvp-contact-item">
+                    <i class="fa fa-map-marker-alt"></i>
+                    <span>KVP Spinning Mills,<br>Tirupur &ndash; 642 154<br>Tamil Nadu, India</span>
+                </div>
+                <div class="kvp-contact-item">
+                    <i class="fa fa-phone-alt"></i>
+                    <a href="tel:+916381457571">+91 6381457571</a>
+                </div>
+                <div class="kvp-contact-item">
+                    <i class="fa fa-envelope"></i>
+                    <a href="mailto:kvpspinningmills@gmail.com">kvpspinningmills@gmail.com</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="kvp-footer-bottom">
+            <div>© 2026 KVP Spinning Mills. All rights reserved.</div>
+            <div>ISO 9001:2015 Certified <span class="divider">·</span> Made in Coimbatore, India</div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

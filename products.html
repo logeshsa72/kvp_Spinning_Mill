@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Products &amp; Yarn Range - KVP Spinning Mills</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/kvp.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        /* =========================================================
+           GLOBAL TOKENS
+           Everything below is driven from ONE palette so the hero,
+           product cards, stats band, CTA and footer all read as the
+           same brand instead of three different templates stitched
+           together (this was the root cause of the mismatched look).
+           ========================================================= */
+        :root {
+            --orange: #FF5E14;      /* single brand accent, used everywhere */
+            --black: #12161f;       /* single dark background, used everywhere */
+            --cream: #f7f5f1;
+            --border: #ececec;
+            --gray-text: #4a5160;
+            --font-body: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+        }
+
+        body { font-family: var(--font-body); }
+
+        /* ---------- Hero ---------- */
+        .pyh-section {
+            background: var(--black);
+            padding: 100px 20px 110px;
+        }
+        .pyh-inner { max-width: 1100px; margin: 0 auto; }
+        .pyh-label { display: flex; align-items: center; gap: 14px; margin-bottom: 26px; }
+        .pyh-label .pyh-line { width: 40px; height: 3px; background: var(--orange); display: inline-block; }
+        .pyh-label span {
+            color: var(--orange);
+            font-weight: 700;
+            letter-spacing: 3px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        .pyh-heading {
+            font-family: var(--font-display);
+            font-size: 3.4rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 26px;
+        }
+        .pyh-heading .line-white { color: #fff; display: block; }
+        .pyh-heading .line-orange { color: var(--orange); display: block; }
+        .pyh-text { color: rgba(255,255,255,0.65); font-size: 17px; line-height: 1.85; max-width: 720px; }
+
+        @media (max-width: 767px) {
+            .pyh-section { padding: 70px 20px 80px; }
+            .pyh-heading { font-size: 2.1rem; }
+            .pyh-text { font-size: 15px; }
+        }
+
+        /* ---------- Product listing ---------- */
+        .pd-wrap { background: #fff; }
+
+        .pd-item {
+            scroll-margin-top: 100px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            max-width: 1360px;
+            margin: 0 auto;
+            padding: 90px 40px;
+            gap: 70px;
+        }
+        .pd-item.reverse { flex-direction: row-reverse; }
+        .pd-item:not(:last-child) { border-bottom: 1px solid var(--border); }
+
+        .pd-media {
+            flex: 1 1 460px;
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            min-height: 540px;
+            box-shadow: 0 30px 60px -20px rgba(18,22,31,0.25);
+            /* fallback gradient shows through if an image fails to load,
+               instead of a blank box with a broken-image icon */
+            background: linear-gradient(135deg, var(--black) 0%, #2a3040 100%);
+        }
+        .pd-media img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            position: absolute; inset: 0;
+            transition: transform 0.8s cubic-bezier(0.22,1,0.36,1);
+        }
+        .pd-media:hover img { transform: scale(1.06); }
+        .pd-media::after {
+            content: "";
+            position: absolute; inset: 0;
+            background: linear-gradient(180deg, rgba(18,22,31,0) 55%, rgba(18,22,31,0.55) 100%);
+            pointer-events: none;
+        }
+
+        .pd-tag {
+            position: absolute;
+            top: 26px; left: 26px;
+            z-index: 2;
+            background: rgba(18,22,31,0.85);
+            backdrop-filter: blur(6px);
+            color: #fff;
+            font-size: 13.5px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .pd-content {
+            flex: 1 1 460px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 620px;
+        }
+
+        .pd-counter { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
+        .pd-counter .num { color: var(--orange); font-weight: 700; letter-spacing: 3px; font-size: 13px; }
+        .pd-counter .rule { flex: 1; max-width: 260px; height: 1px; background: linear-gradient(90deg, var(--orange), var(--border)); }
+
+        .pd-title {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 2.6rem;
+            letter-spacing: 0.5px;
+            color: var(--black);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .pd-desc { color: var(--gray-text); font-size: 16px; line-height: 1.9; margin-bottom: 32px; }
+
+        .pd-spec { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 28px; }
+        .pd-spec-row { display: flex; padding: 16px 20px; font-size: 14.5px; }
+        .pd-spec-row:not(:last-child) { border-bottom: 1px solid var(--border); }
+        .pd-spec-row:nth-child(odd) { background: #fafafa; }
+        .pd-spec-row .label { flex: 0 0 150px; display: flex; align-items: center; gap: 10px; color: #9aa0aa; font-weight: 600; }
+        .pd-spec-row .label i { color: var(--orange); font-size: 13px; width: 14px; }
+        .pd-spec-row .value { color: var(--black); font-weight: 500; flex: 1; }
+
+        .pd-checklist { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; margin-bottom: 30px; }
+        .pd-check {
+            display: flex; align-items: center; gap: 10px;
+            font-size: 14px; font-weight: 500; color: #333a45;
+            background: #fdf5ef; padding: 10px 14px; border-radius: 8px;
+            border: 1px solid #fbe6d4;
+        }
+        .pd-check i { color: var(--orange); font-size: 15px; flex-shrink: 0; }
+
+        .pd-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 34px; }
+        .pd-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            border: 1px solid var(--border); color: var(--black);
+            font-size: 12.5px; font-weight: 700; letter-spacing: 0.3px;
+            padding: 9px 16px; border-radius: 30px;
+        }
+        .pd-badge i { color: var(--orange); }
+
+        .pd-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--black); color: #fff;
+            font-weight: 600; font-size: 14.5px;
+            padding: 16px 32px; border-radius: 40px;
+            text-decoration: none; width: fit-content;
+            transition: background 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+        }
+        .pd-btn i { transition: transform 0.35s ease; }
+        .pd-btn:hover {
+            background: var(--orange);
+            transform: translateY(-3px);
+            box-shadow: 0 14px 28px rgba(255,94,20,0.35);
+        }
+        .pd-btn:hover i { transform: translateX(4px); }
+
+        @media (max-width: 991px) {
+            .pd-item, .pd-item.reverse { flex-direction: column; padding: 60px 24px; gap: 40px; }
+            .pd-media { min-height: 340px; }
+            .pd-title { font-size: 2rem; }
+            .pd-checklist { grid-template-columns: 1fr; }
+        }
+
+        /* ---------- Stats band ---------- */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            background: var(--cream);
+            padding: 56px 48px;
+        }
+        .stat { padding: 0 40px; border-left: 1px solid var(--border); }
+        .stat:first-child { border-left: none; padding-left: 0; }
+        .stat .big-num {
+            font-family: var(--font-display);
+            font-size: 46px;
+            color: var(--orange);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .stat .label { font-size: 17px; font-weight: 700; margin-bottom: 6px; color: var(--black); }
+        .stat .desc { font-size: 14px; color: var(--gray-text); }
+
+        /* ---------- CTA ---------- */
+        .cta-section {
+            background: var(--black);
+            color: #fff;
+            padding: 80px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+        .cta-left { max-width: 640px; }
+        .eyebrow {
+            display: flex; align-items: center; gap: 12px;
+            color: var(--orange); font-size: 12px; font-weight: 700;
+            letter-spacing: 2px; margin-bottom: 28px;
+        }
+        .eyebrow::before { content: ""; width: 24px; height: 2px; background: var(--orange); }
+        .cta-left h2 {
+            font-family: var(--font-display);
+            font-size: 38px; font-weight: 700; line-height: 1.15; margin-bottom: 24px;
+        }
+        .cta-left p { font-size: 16px; line-height: 1.7; color: #c9c9c9; max-width: 520px; }
+        .cta-buttons { display: flex; gap: 16px; flex-shrink: 0; }
+        .btn-primary {
+            background: var(--orange); color: #fff; border: none;
+            padding: 20px 32px; font-size: 15px; font-weight: 700;
+            border-radius: 6px; cursor: pointer;
+            display: flex; align-items: center; gap: 10px; white-space: nowrap;
+            text-decoration: none;
+        }
+        .btn-secondary {
+            background: transparent; color: #fff; border: 1px solid #555;
+            padding: 20px 32px; font-size: 15px; font-weight: 700;
+            border-radius: 6px; cursor: pointer; white-space: nowrap;
+            text-decoration: none;
+        }
+
+        @media (max-width: 900px) {
+            .stats { grid-template-columns: 1fr; gap: 32px; }
+            .stat { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 24px; }
+            .stat:first-child { border-top: none; padding-top: 0; }
+            .cta-section { flex-direction: column; align-items: flex-start; }
+            .cta-left h2 { font-size: 30px; }
+            .cta-buttons { width: 100%; }
+            .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+        }
+        @media (max-width: 575px) {
+            .cta-buttons { flex-direction: column; }
+        }
+
+        /* ---------- Footer ---------- */
+        .kvp-footer { background: var(--black); color: rgba(255,255,255,0.65); padding: 70px 20px 0; font-size: 14.5px; }
+        .kvp-footer-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; flex-wrap: wrap; gap: 50px;
+            padding-bottom: 50px; border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .kvp-footer-col { flex: 1 1 220px; }
+        .kvp-footer-col.about { flex: 2 1 320px; }
+        .kvp-footer-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+        .kvp-footer-logo img { height: 88px; }
+        .kvp-footer-col p.desc { line-height: 1.8; max-width: 340px; margin-bottom: 0; }
+        .kvp-footer-heading {
+            color: #fff; font-size: 16px; font-weight: 700; margin-bottom: 22px;
+            position: relative; padding-bottom: 10px;
+        }
+        .kvp-footer-heading::after {
+            content: ""; position: absolute; left: 0; bottom: 0;
+            width: 32px; height: 2px; background: var(--orange);
+        }
+        .kvp-footer-links { list-style: none; margin: 0; padding: 0; }
+        .kvp-footer-links li { margin-bottom: 13px; }
+        .kvp-footer-links a {
+            color: rgba(255,255,255,0.65); text-decoration: none;
+            transition: color 0.25s ease, padding-left 0.25s ease; display: inline-block;
+        }
+        .kvp-footer-links a:hover { color: var(--orange); padding-left: 4px; }
+        .kvp-contact-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 18px; }
+        .kvp-contact-item i { color: var(--orange); font-size: 15px; margin-top: 3px; width: 16px; text-align: center; flex-shrink: 0; }
+        .kvp-contact-item a, .kvp-contact-item span { color: rgba(255,255,255,0.65); text-decoration: none; line-height: 1.6; }
+        .kvp-contact-item a:hover { color: var(--orange); }
+        .kvp-footer-bottom {
+            max-width: 1200px; margin: 0 auto; padding: 24px 0;
+            display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between;
+            font-size: 13px; color: rgba(255,255,255,0.45);
+        }
+        .kvp-footer-bottom span.divider { color: rgba(255,255,255,0.25); margin: 0 6px; }
+
+        @media (max-width: 767px) {
+            .kvp-footer-inner { flex-direction: column; gap: 40px; }
+            .kvp-footer-bottom { justify-content: center; text-align: center; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
+    </div>
+    <!-- Spinner End -->
+
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top py-0 pe-5">
+        <a href="index.html" class="navbar-brand ps-5 me-0">
+            <img src="img/kvp.png" alt="KVP Spinning Mills Logo" width="100" onerror="this.style.display='none'">
+           
+            </a>
+        <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                <a href="products.html" class="nav-item nav-link active">Products</a>
+                <a href="capabilities.html" class="nav-item nav-link">Capabilities</a>
+                <a href="about.html" class="nav-item nav-link">About</a>
+                
+            </div>
+            <a href="contact.html" class="btn nav-cta-btn d-none d-lg-block">Get in Touch</a>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <div class="pyh-section">
+        <div class="pyh-inner">
+            <div class="pyh-label">
+                <span class="pyh-line"></span>
+                <span>Our Yarn Range</span>
+            </div>
+            <h1 class="pyh-heading">
+                <span class="line-white">Crafted for Consistency.</span>
+                <span class="line-orange">Built for Scale.</span>
+            </h1>
+            <p class="pyh-text">
+                From PC blended yarn to fine silk and high-performance speciality Yarns —
+                every product we ship meets the exacting standards of global textile
+                manufacturers.
+            </p>
+        </div>
+    </div>
+
+    <div class="pd-wrap">
+
+        <!-- ===== 01 — PC Blended Yarn ===== -->
+        <div class="pd-item" id="cotton-yarn">
+            <div class="pd-media">
+                <img src="img/yarn.webp" alt="PC Blended Yarn" onerror="this.style.display='none'">
+                <span class="pd-tag">Ne 33s – Ne 66s</span>
+            </div>
+            <div class="pd-content">
+                <div class="pd-counter"><span class="num">01 / 03</span><span class="rule"></span></div>
+                <h2 class="pd-title">PC Blended Yarn</h2>
+                <p class="pd-desc">
+                    PC (polyester-cotton blends) yarns are engineered by spinning PSF with natural
+                    cellulosic cotton fibres. This structural composition optimizes the yarn's
+                    mechanical properties and provides high tensile strength, low moisture regain
+                    and thermoplastic durability.
+                </p>
+                <div class="pd-spec">
+                    <div class="pd-spec-row"><span class="label"><i class="fa fa-layer-group"></i>Fibre</span><span class="value">PSF + Natural Cotton</span></div>
+                    <div class="pd-spec-row"><span class="label"><i class="fa fa-ruler"></i>Count Range</span><span class="value">Ne 30s – Ne 66s</span></div>
+                    <div class="pd-spec-row"><span class="label"><i class="fa fa-sync-alt"></i>Twist</span><span class="value">S &amp; Z available</span></div>
+                    <div class="pd-spec-row"><span class="label"><i class="fa fa-box"></i>Packing</span><span class="value">Cone / Cheese</span></div>
+                    <div class="pd-spec-row"><span class="label"><i class="fa fa-tshirt"></i>End Use</span><span class="value">Everyday apparel, Workwear, Uniforms, Sportswear</span></div>
+                </div>
+                <div class="pd-checklist">
+                    <div class="pd-check"><i class="fa fa-check-circle"></i>High tensile strength</div>
+                    <div class="pd-check"><i class="fa fa-check-circle"></i>Low moisture regain</div>
+                    <div class="pd-check"><i class="fa fa-check-circle"></i>Thermoplastic durability</div>
+                    <div class="pd-check"><i class="fa fa-check-circle"></i>Precise blend ratios</div>
+                </div>
+                <div class="pd-badges">
+                    <span class="pd-badge"><i class="fa fa-award"></i>ISO 9001:2015*</span>
+                    <span class="pd-badge"><i class="fa fa-award"></i>OEKO-TEX Standard 100*</span>
+                </div>
+                <a class="pd-btn" href="get-a-sample.html">Request Sample <i class="fa fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <!-- ===== 02 — Silk Yarn ===== -->
+        <div class="pd-item reverse" id="silk-yarn">
+            <div class="pd-media">
+                <img src="img/yarn-blended.jpg" alt="Silk Yarn" onerror="this.style.display='none'">
+                <span class="pd-tag">20/22D – 80/64D</span>
+            </div>
+            <div class="pd-content">
+                <div class="pd-counter"><span class="num">02 / 03</span><span class="rule"></span></div>
+                <h2 class="pd-title">Silk Yarn</h2>
+                <p class="pd-desc">
+                    A luxurious, natural protein fiber spun from cocoons of silkworms, renowned for
+                    its exceptional strength, luster and smooth texture.
+                </p>
+                <div class="pd-spec">
+                    <div class="pd-spec-row"><span class="label"><i class="fa fa-layer-group"></i>Fibre</span><span class="value">100% Natural Silk</span></div>
+                    <div class="pd-spec-row"><span class="label"><i class="fa fa-ruler"></i>Count Range</span><span class="value">20/22D – 80/64D</span></div>
+                    <div class="pd-spec-row"><span class="label"><i class="fa fa-sync-alt"></i>Twist</span><span class="value">S &amp; Z available</span></div>
+                    <div class="pd-spec-row"><span class="label"><i class="fa fa-box"></i>Packing</span><span class="value">Cone / Hank</span></div>
+                    <div class="pd-spec-row"><span class="label"><i class="fa fa-tshirt"></i>End Use</span><span class="value">Premium Shirting, Luxury Fabrics, Sarees, Medical textiles</span></div>
+                </div>
+                <div class="pd-checklist">
+                    <div class="pd-check"><i class="fa fa-check-circle"></i>Exceptional lustre</div>
+                    <div class="pd-check"><i class="fa fa-check-circle"></i>Smooth texture</div>
+                    <div class="pd-check"><i class="fa fa-check-circle"></i>Superior strength</div>
+                    <div class="pd-check"><i class="fa fa-check-circle"></i>Natural protein fibre</div>
+                </div>
+                <div class="pd-badges">
+                    <span class="pd-badge"><i class="fa fa-award"></i>ISO 9001:2015*</span>
+                    <span class="pd-badge"><i class="fa fa-award"></i>OEKO-TEX Standard 100*</span>
+                </div>
+                <a class="pd-btn" href="get-a-sample.html">Request Sample <i class="fa fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <!-- ===== 03 — Speciality Yarns ===== -->
+        <div class="pd-item" id="specialty-yarns">
+            <div class="pd-media">
+                <img src="img/3.webp" alt="Speciality Yarns" onerror="this.style.display='none'">
+                <span class="pd-tag">Technical Textiles</span>
+            </div>
+            <div class="pd-content">
+                <div class="pd-counter"><span class="num">03 / 03</span><span class="rule"></span></div>
+                <h2 class="pd-title">Speciality Yarns</h2>
+                <p class="pd-desc">
+                    Special yarns for special needs of customers. Technical yarns are high
+                    performance materials engineered primarily for the specific functional
+                    properties and technical performance.
+                </p>
+                <div class="pd-spec">
+                    <div class="pd-spec-row"><span class="label"><i class="fa fa-layer-group"></i>Fibre</span><span class="value">Engineered / Technical Fibres</span></div>
+                    <div class="pd-spec-row"><span class="label"><i class="fa fa-ruler"></i>Count Range</span><span class="value">As per specification</span></div>
+                    <div class="pd-spec-row"><span class="label"><i class="fa fa-sync-alt"></i>Twist</span><span class="value">Custom</span></div>
+                    <div class="pd-spec-row"><span class="label"><i class="fa fa-box"></i>Packing</span><span class="value">Cone / Cheese / Hank</span></div>
+                    <div class="pd-spec-row"><span class="label"><i class="fa fa-tshirt"></i>End Use</span><span class="value">Technical Textiles, Industrial Fabrics</span></div>
+                </div>
+                <div class="pd-checklist">
+                    <div class="pd-check"><i class="fa fa-check-circle"></i>High performance materials</div>
+                    <div class="pd-check"><i class="fa fa-check-circle"></i>Functional properties</div>
+                    <div class="pd-check"><i class="fa fa-check-circle"></i>Custom engineering</div>
+                    <div class="pd-check"><i class="fa fa-check-circle"></i>Small batch capability</div>
+                </div>
+                <div class="pd-badges">
+                    <span class="pd-badge"><i class="fa fa-award"></i>ISO 9001:2015*</span>
+                    <span class="pd-badge"><i class="fa fa-award"></i>OEKO-TEX Standard 100*</span>
+                </div>
+                <a class="pd-btn" href="get-a-sample.html">Request Sample <i class="fa fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <section class="stats">
+        <div class="stat">
+            <div class="big-num">Ne 33's – 66's</div>
+            <div class="label">Count Range Covered</div>
+            <div class="desc">Fine to coarse, all categories</div>
+        </div>
+        <div class="stat">
+            <div class="big-num">Uster Tested</div>
+            <div class="label">Quality Assurance</div>
+            <div class="desc">CV%, IPI, Hairiness — every lot</div>
+        </div>
+        <div class="stat">
+            <div class="big-num">24 hrs</div>
+            <div class="label">Sample Response Time</div>
+            <div class="desc">Technical data sheets on request</div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-left">
+            <div class="eyebrow">CUSTOM REQUIREMENTS</div>
+            <h2 style="color: white;">Ready to Source Premium Yarn?</h2>
+            <p>Our technical team can develop custom yarn specifications to match your exact fabric requirements. Share your specs and we'll respond within 24 hours.</p>
+        </div>
+        <div class="cta-buttons">
+            <a class="btn-primary" href="get-a-sample.html">Request a Sample →</a>
+            <a class="btn-secondary" href="capabilities.html">View Capabilities</a>
+        </div>
+    </section>
+
+    <footer class="kvp-footer">
+        <div class="kvp-footer-inner">
+
+            <!-- About -->
+            <div class="kvp-footer-col about">
+                <div class="kvp-footer-logo">
+                    <img src="img/kvp.png" alt="KVP Spinning Mills" width="110" onerror="this.style.display='none'" />
+                </div>
+                <p class="desc">
+                    Precision yarn manufacturing from the heart of Coimbatore, Tamil Nadu.
+                    Trusted by textile manufacturers &amp; export buyers across India &amp; overseas.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="kvp-footer-col">
+                <h5 class="kvp-footer-heading">Quick Links</h5>
+                <ul class="kvp-footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products &amp; Yarn Range</a></li>
+                    <li><a href="capabilities.html">Mill Capabilities</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    
+                    <li><a href="get-a-sample.html">Get in Touch</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div class="kvp-footer-col">
+                <h5 class="kvp-footer-heading">Get in Touch</h5>
+                <div class="kvp-contact-item">
+                    <i class="fa fa-map-marker-alt"></i>
+                    <span>KVP Spinning Mills,<br>Tirupur &ndash; 642 154<br>Tamil Nadu, India</span>
+                </div>
+                <div class="kvp-contact-item">
+                    <i class="fa fa-phone-alt"></i>
+                    <a href="tel:+916381457571">+91 6381457571</a>
+                </div>
+                <div class="kvp-contact-item">
+                    <i class="fa fa-envelope"></i>
+                    <a href="mailto:kvpspinningmills@gmail.com">kvpspinningmills@gmail.com</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="kvp-footer-bottom">
+            <div>© 2026 KVP Spinning Mills. All rights reserved.</div>
+            <div>ISO 9001:2015 Certified* <span class="divider">·</span> Made in Coimbatore, India</div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

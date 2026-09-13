@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Contact - KVP Spinning Mills</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/kvp.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        /* =========================================================
+           SAME TOKENS AS index.html / products.html / capabilities.html
+           ========================================================= */
+        :root {
+            --orange: #FF5E14;
+            --black: #12161f;
+            --cream: #f7f5f1;
+            --border: #ececec;
+            --gray-text: #4a5160;
+            --font-body: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+        }
+
+        body { font-family: var(--font-body); }
+
+        /* ---------- Hero ---------- */
+        .pyh-section { background: var(--black); padding: 100px 20px 110px; }
+        .pyh-inner { max-width: 1100px; margin: 0 auto; }
+        .pyh-label { display: flex; align-items: center; gap: 14px; margin-bottom: 26px; }
+        .pyh-label .pyh-line { width: 40px; height: 3px; background: var(--orange); display: inline-block; }
+        .pyh-label span {
+            color: var(--orange); font-weight: 700; letter-spacing: 3px;
+            font-size: 14px; text-transform: uppercase;
+        }
+        .pyh-heading {
+            font-family: var(--font-display);
+            font-size: 3.4rem; font-weight: 700; line-height: 1.15; margin-bottom: 26px;
+        }
+        .pyh-heading .line-white { color: #fff; display: block; }
+        .pyh-heading .line-orange { color: var(--orange); display: block; }
+        .pyh-text { color: rgba(255,255,255,0.65); font-size: 17px; line-height: 1.85; max-width: 720px; }
+
+        @media (max-width: 767px) {
+            .pyh-section { padding: 70px 20px 80px; }
+            .pyh-heading { font-size: 2.1rem; }
+            .pyh-text { font-size: 15px; }
+        }
+
+        /* ---------- Contact section ---------- */
+        .contact-wrap { background: var(--cream); padding: 90px 40px; }
+        .contact-inner {
+            max-width: 1280px; margin: 0 auto;
+            display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 48px; align-items: start;
+        }
+
+        .contact-eyebrow {
+            color: var(--orange); font-size: 13px; font-weight: 700;
+            letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;
+        }
+
+        .info-block { margin-bottom: 40px; }
+        .info-item {
+            display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px;
+        }
+        .info-item i {
+            color: var(--orange); font-size: 16px; margin-top: 4px; width: 18px; flex-shrink: 0;
+        }
+        .info-item strong { display: block; color: var(--black); font-weight: 700; margin-bottom: 3px; }
+        .info-item span, .info-item a {
+            color: var(--gray-text); font-size: 15px; line-height: 1.65; text-decoration: none;
+        }
+        .info-item a:hover { color: var(--orange); }
+
+        .next-box {
+            background: #fff; border: 1px solid var(--border); border-radius: 12px;
+            padding: 30px 28px;
+        }
+        .next-box .contact-eyebrow { margin-bottom: 18px; }
+        .next-list { list-style: none; margin: 0; padding: 0; }
+        .next-list li {
+            display: flex; align-items: flex-start; gap: 12px;
+            font-size: 15px; color: var(--black); padding: 10px 0;
+        }
+        .next-list li:not(:last-child) { border-bottom: 1px solid var(--border); }
+        .next-list i { color: var(--orange); font-size: 17px; margin-top: 2px; flex-shrink: 0; }
+
+        /* ---------- Form card ---------- */
+        .form-card {
+            background: #fff; border: 1px solid var(--border); border-radius: 14px;
+            padding: 44px 44px 40px;
+        }
+        .form-card h2 {
+            font-family: var(--font-display);
+            font-size: 26px; font-weight: 700; color: var(--black); margin-bottom: 8px;
+        }
+        .form-card > p { color: var(--gray-text); font-size: 15px; margin-bottom: 34px; }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+        .form-group label {
+            display: block; font-size: 12.5px; font-weight: 700; letter-spacing: 0.5px;
+            color: var(--black); text-transform: uppercase; margin-bottom: 10px;
+        }
+        .form-group label .req { color: var(--orange); }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%; background: var(--cream); border: 1px solid var(--border);
+            border-radius: 8px; padding: 14px 16px; font-size: 15px; font-family: var(--font-body);
+            color: var(--black); transition: border-color 0.25s ease, background 0.25s ease;
+        }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder { color: #9a9fa8; }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none; border-color: var(--orange); background: #fff;
+        }
+        .form-group textarea { resize: vertical; min-height: 140px; }
+        .form-group { margin-bottom: 24px; }
+
+        .submit-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--black); color: #fff; border: none;
+            padding: 17px 30px; font-size: 15px; font-weight: 700;
+            border-radius: 8px; cursor: pointer; text-decoration: none;
+            transition: background 0.25s ease, transform 0.25s ease;
+        }
+        .submit-btn:hover { background: var(--orange); transform: translateY(-2px); color: #fff; }
+
+        @media (max-width: 991px) {
+            .contact-inner { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 640px) {
+            .contact-wrap { padding: 60px 20px; }
+            .form-card { padding: 32px 24px 28px; }
+            .form-row { grid-template-columns: 1fr; gap: 0; }
+        }
+
+        /* ---------- Bottom strip ---------- */
+        .bottom-strip {
+            background: var(--cream); border-top: 1px solid var(--border);
+            padding: 26px 40px; display: flex; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: 12px; max-width: 1280px; margin: 0 auto;
+        }
+        .bottom-strip .left { color: var(--gray-text); font-size: 14px; }
+        .bottom-strip .left strong { color: var(--black); }
+        .bottom-strip .right a {
+            color: var(--orange); font-size: 14px; font-weight: 600; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 8px;
+        }
+
+        /* ---------- Footer ---------- */
+        .kvp-footer { background: var(--black); color: rgba(255,255,255,0.65); padding: 70px 20px 0; font-size: 14.5px; }
+        .kvp-footer-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; flex-wrap: wrap; gap: 50px;
+            padding-bottom: 50px; border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .kvp-footer-col { flex: 1 1 220px; }
+        .kvp-footer-col.about { flex: 2 1 320px; }
+        .kvp-footer-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+        .kvp-footer-logo img { height: 88px; }
+        .kvp-footer-col p.desc { line-height: 1.8; max-width: 340px; margin-bottom: 0; }
+        .kvp-footer-heading {
+            color: #fff; font-size: 16px; font-weight: 700; margin-bottom: 22px;
+            position: relative; padding-bottom: 10px;
+        }
+        .kvp-footer-heading::after {
+            content: ""; position: absolute; left: 0; bottom: 0;
+            width: 32px; height: 2px; background: var(--orange);
+        }
+        .kvp-footer-links { list-style: none; margin: 0; padding: 0; }
+        .kvp-footer-links li { margin-bottom: 13px; }
+        .kvp-footer-links a {
+            color: rgba(255,255,255,0.65); text-decoration: none;
+            transition: color 0.25s ease, padding-left 0.25s ease; display: inline-block;
+        }
+        .kvp-footer-links a:hover { color: var(--orange); padding-left: 4px; }
+        .kvp-contact-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 18px; }
+        .kvp-contact-item i { color: var(--orange); font-size: 15px; margin-top: 3px; width: 16px; text-align: center; flex-shrink: 0; }
+        .kvp-contact-item a, .kvp-contact-item span { color: rgba(255,255,255,0.65); text-decoration: none; line-height: 1.6; }
+        .kvp-contact-item a:hover { color: var(--orange); }
+        .kvp-footer-bottom {
+            max-width: 1200px; margin: 0 auto; padding: 24px 0;
+            display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between;
+            font-size: 13px; color: rgba(255,255,255,0.45);
+        }
+        .kvp-footer-bottom span.divider { color: rgba(255,255,255,0.25); margin: 0 6px; }
+
+        @media (max-width: 767px) {
+            .kvp-footer-inner { flex-direction: column; gap: 40px; }
+            .kvp-footer-bottom { justify-content: center; text-align: center; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top py-0 pe-5">
+      <a href="index.html" class="navbar-brand ps-5 me-0">
+            <img src="img/kvp.png" alt="KVP Spinning Mills Logo" width="100" onerror="this.style.display='none'">
+           
+            </a>
+        <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                <a href="products.html" class="nav-item nav-link">Products</a>
+                <a href="capabilities.html" class="nav-item nav-link">Capabilities</a>
+                <a href="about.html" class="nav-item nav-link">About</a>
+                <a href="contact.html" class="nav-item nav-link active">Contact</a>
+            </div>
+            <a href="contact.html" class="btn nav-cta-btn d-none d-lg-block">Get in Touch</a>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- ============ HERO ============ -->
+    <div class="pyh-section">
+        <div class="pyh-inner">
+            <div class="pyh-label">
+                <span class="pyh-line"></span>
+                <span>Get in Touch</span>
+            </div>
+            <h1 class="pyh-heading">
+                <span class="line-white">Let's Build a</span>
+                <span class="line-orange">Supply Partnership.</span>
+            </h1>
+            <p class="pyh-text">
+                Whether you need yarn samples, technical data sheets, or want to discuss a
+                long-term supply arrangement — our team is ready to respond within 24 hours.
+            </p>
+        </div>
+    </div>
+
+    <!-- ============ CONTACT SECTION ============ -->
+    <div class="contact-wrap">
+        <div class="contact-inner">
+
+            <!-- LEFT COLUMN -->
+            <div>
+                <div class="info-block">
+                    <div class="contact-eyebrow">Mill Address</div>
+                    <div class="info-item">
+                        <i class="fa fa-map-marker-alt"></i>
+                        <div>
+                            <strong>KVP Spinning Mills</strong>
+                            <span>
+                                Sf no 116, Chinnaverampatti village, Udumalpet<br>
+                                Tirupur &ndash; 642 154<br>
+                                Tamil Nadu, India
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-block">
+                    <div class="contact-eyebrow">Our Team</div>
+                    <div class="info-item">
+                        <i class="fa fa-phone-alt"></i>
+                        <a href="tel:+916381457571">+91 6381457571</a>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa fa-envelope"></i>
+                        <a href="mailto:kvpspinningmills@gmail.com">kvpspinningmills@gmail.com</a>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa fa-clock"></i>
+                        <span>
+                            Mon &ndash; Sat: 9:00 AM &ndash; 6:00 PM IST<br>
+                            Response within 24 business hours
+                        </span>
+                    </div>
+                </div>
+
+                <div class="next-box">
+                    <div class="contact-eyebrow">What Happens Next</div>
+                    <ul class="next-list">
+                        <li><i class="fa fa-check-circle"></i>Our team reviews your inquiry within 24 hours.</li>
+                        <li><i class="fa fa-check-circle"></i>We share technical data sheets and count availability.</li>
+                        <li><i class="fa fa-check-circle"></i>Sample shipment arranged within 5&ndash;7 business days.</li>
+                        <li><i class="fa fa-check-circle"></i>Pricing and lead time confirmed for your order volume.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: FORM -->
+            <div class="form-card">
+                <h2>Send an Inquiry</h2>
+                <p>Fill in the details below and our export team will get back to you promptly.</p>
+
+                <form id="kvpContactForm" action="https://api.web3forms.com/submit" method="POST">
+                    <!-- Get your free access key at https://web3forms.com and paste it below -->
+                    <input type="hidden" name="access_key" value="PASTE_YOUR_WEB3FORMS_ACCESS_KEY_HERE">
+                    <input type="hidden" name="subject" value="New Inquiry - KVP Spinning Mills Website">
+                    <input type="hidden" name="from_name" value="KVP Spinning Mills Website">
+                    <!-- Honeypot spam trap - keep this hidden, do not remove -->
+                    <input type="checkbox" name="botcheck" class="d-none" style="display:none">
+
+                    <div id="formAlert" style="display:none; margin-bottom:20px; padding:14px 18px; border-radius:8px; font-size:14.5px;"></div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName">Full Name <span class="req">*</span></label>
+                            <input type="text" id="fullName" name="name" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="req">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="you@company.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="company">Company / Organisation</label>
+                            <input type="text" id="company" name="company" placeholder="Your company name">
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Country</label>
+                            <input type="text" id="country" name="country" placeholder="e.g. Bangladesh, USA, Germany">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inquiryType">Inquiry Type <span class="req">*</span></label>
+                        <select id="inquiryType" name="inquiryType" required>
+                            <option value="" selected disabled>Select inquiry type...</option>
+                            <option value="sample">Request a Sample</option>
+                            <option value="pricing">Pricing &amp; Quotation</option>
+                            <option value="technical">Technical Data Sheet</option>
+                            <option value="partnership">Long-term Supply Partnership</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message <span class="req">*</span></label>
+                        <textarea id="message" name="message" placeholder="Tell us about your yarn requirements — count range, fibre type, quantity, end use, or any specific quality parameters..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="kvpSubmitBtn">Send Inquiry <i class="fa fa-arrow-right"></i></button>
+                </form>
+            </div>
+
+        </div>
+
+        <!-- BOTTOM STRIP -->
+        <div class="bottom-strip">
+            <div class="left">
+                <strong>ISO 9001:2015 Certified*</strong> &middot; Serving India &amp; overseas &middot; Tirupur, Tamil Nadu, India
+            </div>
+            <div class="right">
+                <a href="mailto:kvpspinningmills@gmail.com"><i class="fa fa-envelope"></i> kvpspinningmills@gmail.com</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="kvp-footer">
+        <div class="kvp-footer-inner">
+
+            <div class="kvp-footer-col about">
+                <div class="kvp-footer-logo">
+                    <img src="img/kvp.png" alt="KVP Spinning Mills" width="110" onerror="this.style.display='none'" />
+                </div>
+                <p class="desc">
+                    Precision yarn manufacturing from the heart of Coimbatore, Tamil Nadu.
+                    Trusted by textile manufacturers &amp; export buyers across India &amp; overseas.
+                </p>
+            </div>
+
+            <div class="kvp-footer-col">
+                <h5 class="kvp-footer-heading">Quick Links</h5>
+                <ul class="kvp-footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products &amp; Yarn Range</a></li>
+                    <li><a href="capabilities.html">Mill Capabilities</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    
+                    <li><a href="get-a-sample.html">Get in Touch</a></li>
+                </ul>
+            </div>
+
+            <div class="kvp-footer-col">
+                <h5 class="kvp-footer-heading">Get in Touch</h5>
+                <div class="kvp-contact-item">
+                    <i class="fa fa-map-marker-alt"></i>
+                    <span>KVP Spinning Mills,<br>Tirupur &ndash; 642 154<br>Tamil Nadu, India</span>
+                </div>
+                <div class="kvp-contact-item">
+                    <i class="fa fa-phone-alt"></i>
+                    <a href="tel:+916381457571">+91 6381457571</a>
+                </div>
+                <div class="kvp-contact-item">
+                    <i class="fa fa-envelope"></i>
+                    <a href="mailto:kvpspinningmills@gmail.com">kvpspinningmills@gmail.com</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="kvp-footer-bottom">
+            <div>© 2026 KVP Spinning Mills. All rights reserved.</div>
+            <div>ISO 9001:2015 Certified <span class="divider">·</span> Made in Coimbatore, India</div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script src="js/form-handler.js"></script>
+    <script>wireKvpForm('kvpContactForm');</script>
+</body>
+
+</html>
