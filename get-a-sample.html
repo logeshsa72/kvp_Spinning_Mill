@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Get A Sample - KVP Spinning Mills</title>
+    <title>Contact - KVP Spinning Mills</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="request yarn sample, cotton yarn sample, silk yarn sample, KVP Spinning Mills" name="keywords">
-    <meta content="Request a free yarn sample from KVP Spinning Mills — cotton, silk and specialty yarn. Trial shipment arranged within 5-7 business days." name="description">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
 
     <!-- Favicon -->
     <link href="img/kvp.png" rel="icon">
@@ -33,6 +33,9 @@
     <link href="css/style.css" rel="stylesheet">
 
     <style>
+        /* =========================================================
+           SAME TOKENS AS index.html / products.html / capabilities.html
+           ========================================================= */
         :root {
             --orange: #FF5E14;
             --black: #12161f;
@@ -68,7 +71,7 @@
             .pyh-text { font-size: 15px; }
         }
 
-        /* ---------- Contact / form section (shared pattern) ---------- */
+        /* ---------- Contact section ---------- */
         .contact-wrap { background: var(--cream); padding: 90px 40px; }
         .contact-inner {
             max-width: 1280px; margin: 0 auto;
@@ -137,7 +140,7 @@
         .form-group textarea:focus {
             outline: none; border-color: var(--orange); background: #fff;
         }
-        .form-group textarea { resize: vertical; min-height: 110px; }
+        .form-group textarea { resize: vertical; min-height: 140px; }
         .form-group { margin-bottom: 24px; }
 
         .submit-btn {
@@ -148,7 +151,6 @@
             transition: background 0.25s ease, transform 0.25s ease;
         }
         .submit-btn:hover { background: var(--orange); transform: translateY(-2px); color: #fff; }
-        .submit-btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
 
         @media (max-width: 991px) {
             .contact-inner { grid-template-columns: 1fr; }
@@ -240,7 +242,7 @@
                 <a href="products.html" class="nav-item nav-link">Products</a>
                 <a href="capabilities.html" class="nav-item nav-link">Capabilities</a>
                 <a href="about.html" class="nav-item nav-link">About</a>
-                
+                <a href="contact.html" class="nav-item nav-link active">Contact</a>
             </div>
             <a href="contact.html" class="btn nav-cta-btn d-none d-lg-block">Get in Touch</a>
         </div>
@@ -252,20 +254,20 @@
         <div class="pyh-inner">
             <div class="pyh-label">
                 <span class="pyh-line"></span>
-                <span>Get A Free Sample</span>
+                <span>Get in Touch</span>
             </div>
             <h1 class="pyh-heading">
-                <span class="line-white">See the Quality</span>
-                <span class="line-orange">Before You Order.</span>
+                <span class="line-white">Let's Build a</span>
+                <span class="line-orange">Supply Partnership.</span>
             </h1>
             <p class="pyh-text">
-                Tell us what you need — count, fibre type, quantity — and we'll arrange a trial
-                shipment so you can test our yarn before committing to a bulk order.
+                Whether you need yarn samples, technical data sheets, or want to discuss a
+                long-term supply arrangement — our team is ready to respond within 24 hours.
             </p>
         </div>
     </div>
 
-    <!-- ============ SAMPLE REQUEST SECTION ============ -->
+    <!-- ============ CONTACT SECTION ============ -->
     <div class="contact-wrap">
         <div class="contact-inner">
 
@@ -306,30 +308,30 @@
                 </div>
 
                 <div class="next-box">
-                    <div class="contact-eyebrow">How Sampling Works</div>
+                    <div class="contact-eyebrow">What Happens Next</div>
                     <ul class="next-list">
-                        <li><i class="fa fa-check-circle"></i>Our team reviews your specification within 24 hours.</li>
-                        <li><i class="fa fa-check-circle"></i>We confirm count, quality parameters &amp; sample quantity.</li>
-                        <li><i class="fa fa-check-circle"></i>Sample shipment dispatched within 5&ndash;7 business days.</li>
-                        <li><i class="fa fa-check-circle"></i>Bulk pricing &amp; lead time shared once you're satisfied.</li>
+                        <li><i class="fa fa-check-circle"></i>Our team reviews your inquiry within 24 hours.</li>
+                        <li><i class="fa fa-check-circle"></i>We share technical data sheets and count availability.</li>
+                        <li><i class="fa fa-check-circle"></i>Sample shipment arranged within 5&ndash;7 business days.</li>
+                        <li><i class="fa fa-check-circle"></i>Pricing and lead time confirmed for your order volume.</li>
                     </ul>
                 </div>
             </div>
 
             <!-- RIGHT COLUMN: FORM -->
             <div class="form-card">
-                <h2>Request Your Sample</h2>
-                <p>Fill in your yarn requirements below — our team will confirm availability and arrange dispatch.</p>
+                <h2>Send an Inquiry</h2>
+                <p>Fill in the details below and our export team will get back to you promptly.</p>
 
-                <form id="kvpSampleForm" action="https://api.web3forms.com/submit" method="POST">
+                <form id="kvpContactForm" action="https://api.web3forms.com/submit" method="POST">
                     <!-- Get your free access key at https://web3forms.com and paste it below -->
-                    <input type="hidden" name="access_key" value="PASTE_YOUR_WEB3FORMS_ACCESS_KEY_HERE">
-                    <input type="hidden" name="subject" value="New Sample Request - KVP Spinning Mills Website">
+                    <input type="hidden" name="access_key" value="a9ec9204-352f-4a04-a853-e9e3888cf53f">
+                    <input type="hidden" name="subject" value="New Inquiry - KVP Spinning Mills Website">
                     <input type="hidden" name="from_name" value="KVP Spinning Mills Website">
                     <!-- Honeypot spam trap - keep this hidden, do not remove -->
                     <input type="checkbox" name="botcheck" class="d-none" style="display:none">
 
-                    <div id="sampleFormAlert" style="display:none; margin-bottom:20px; padding:14px 18px; border-radius:8px; font-size:14.5px;"></div>
+                    <div id="formAlert" style="display:none; margin-bottom:20px; padding:14px 18px; border-radius:8px; font-size:14.5px;"></div>
 
                     <div class="form-row">
                         <div class="form-group">
@@ -353,39 +355,24 @@
                         </div>
                     </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="yarnType">Yarn Type <span class="req">*</span></label>
-                            <select id="yarnType" name="yarnType" required>
-                                <option value="" selected disabled>Select yarn type...</option>
-                                <option value="pc-blended">PC Blended Yarn (Cotton)</option>
-                                <option value="silk">Silk Yarn</option>
-                                <option value="specialty">Specialty / Technical Yarns</option>
-                                <option value="not-sure">Not sure yet — need guidance</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="countSpec">Count / Specification</label>
-                            <input type="text" id="countSpec" name="countSpec" placeholder="e.g. Ne 40s, 20/22D">
-                        </div>
+                    <div class="form-group">
+                        <label for="inquiryType">Inquiry Type <span class="req">*</span></label>
+                        <select id="inquiryType" name="inquiryType" required>
+                            <option value="" selected disabled>Select inquiry type...</option>
+                            <option value="sample">Request a Sample</option>
+                            <option value="pricing">Pricing &amp; Quotation</option>
+                            <option value="technical">Technical Data Sheet</option>
+                            <option value="partnership">Long-term Supply Partnership</option>
+                            <option value="other">Other</option>
+                        </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="quantity">Approx. Sample Quantity</label>
-                        <input type="text" id="quantity" name="quantity" placeholder="e.g. 5 kg trial lot">
+                        <label for="message">Message <span class="req">*</span></label>
+                        <textarea id="message" name="message" placeholder="Tell us about your yarn requirements — count range, fibre type, quantity, end use, or any specific quality parameters..." required></textarea>
                     </div>
 
-                    <div class="form-group">
-                        <label for="shippingAddress">Shipping Address</label>
-                        <textarea id="shippingAddress" name="shippingAddress" placeholder="Address for the sample shipment to be sent to" style="min-height: 80px;"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Additional Notes</label>
-                        <textarea id="message" name="message" placeholder="Any specific quality parameters, end use, or timeline we should know about..."></textarea>
-                    </div>
-
-                    <button type="submit" class="submit-btn" id="kvpSampleSubmitBtn">Send Sample Request <i class="fa fa-arrow-right"></i></button>
+                    <button type="submit" class="submit-btn" id="kvpSubmitBtn">Send Inquiry <i class="fa fa-arrow-right"></i></button>
                 </form>
             </div>
 
@@ -432,7 +419,7 @@
                 <h5 class="kvp-footer-heading">Get in Touch</h5>
                 <div class="kvp-contact-item">
                     <i class="fa fa-map-marker-alt"></i>
-                     <span>KVP Spinning Mills,<br>Sf no 116, Chinnaverampatti village, Udumalpet,<br>Tirupur &ndash; 642 154<br>Tamil Nadu, India</span>
+                    <span>KVP Spinning Mills,<br>Tirupur &ndash; 642 154<br>Tamil Nadu, India</span>
                 </div>
                 <div class="kvp-contact-item">
                     <i class="fa fa-phone-alt"></i>
@@ -464,7 +451,7 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script src="js/form-handler.js"></script>
-    <script>wireKvpForm('kvpSampleForm');</script>
+    <script>wireKvpForm('kvpContactForm');</script>
 </body>
 
 </html>
